@@ -2,14 +2,13 @@
 csms 화면 부분
 
 * 실행
-  nodemon 다운로드 - nodemon은 소스가 수정되면 자동으로 재기동을 해주어 소스 수정 후 재기동이 필요없음.
-  1) 설치
+  1)nodemon 다운로드 - nodemon은 소스가 수정되면 자동으로 재기동을 해주어 소스 수정 후 재기동이 필요없음.
+  2) 설치
   프로젝트 내에서 dev옵션으로 설치
   npm install nodemon --save-dev
   또는 전역설치
-  npm install nodemon -g
-  
-  2) 실행
+  npm install nodemon -g  
+  3) 실행
   프로젝트 app.js 있는 위치까지 콘솔창으로 접근 후
   nodemon app.js
   
