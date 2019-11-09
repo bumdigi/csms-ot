@@ -1,6 +1,10 @@
 # csms-ot
 csms 화면 부분
 
+* 설치
+  1) git clone https://github.com/bumdigi/csms-ot.git
+  2) csms-ot 폴더 까지 콘솔창 접근 후 npm install
+
 * 실행
   1) nodemon 다운로드 - nodemon은 소스가 수정되면 자동으로 재기동을 해주어 소스 수정 후 재기동이 필요없음.
   2) 설치
