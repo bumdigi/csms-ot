@@ -1,17 +1,19 @@
-var createError = require('http-errors')
-var express = require('express')
-var cookieParser = require('cookie-parser')
-var logger = require('morgan')
-var http = require('http')
+const createError = require('http-errors')
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
+const mongoose = require('mongoose')
+const DBconfig = require('./config/DB.js')
+const indexRouter = require('./routes/index')
+const usersRouter = require('./routes/users')
 
-var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
+mongoose.Promise = global.Promise
+mongoose.connect(DBconfig.DB, {useNewUrlParser: true, useUnifiedTopology: true}).then(
+  () => {console.log(`Database is connected`)},
+  err => {console.log(`Can not connect to the database ${err}`)}
+)
 
 const app = express()
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -37,9 +39,10 @@ app.use(function(err, req, res, next) {
   res.render('error')
 })
 
+// www에 정의되어 있음
 // run server
-server.listen(process.env.PORT || '3000', function() {
-	console.log("server listen...")
-})
+// app.listen(process.env.PORT || '4000', function() {
+// 	console.log("server listen...")
+// })
 
 module.exports = app

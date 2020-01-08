@@ -1,14 +1,29 @@
 var express = require('express')
-var fs = require('fs')
 var router = express.Router()
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  //res.send('respond with a resource users router')
-})
+let User = require('../models/user.model')
 
-router.get('/chat', function(req, res, next) {
-  res.status(201).json({ item: 'sss' })
+router.route('/user')
+  .post((req, res) => {
+    console.log(req.body)
+    let user = new User(req.body)
+    user.save()
+      .then(() => {
+        res.status(200).json({'business': 'business in added successfully'})
+      })
+      .catch(() => {
+        res.status(400).send(`user add fail.`)
+      })
+  })
+  .get((req, res) => {
+    console.log(req.body)
+    User.find((err, users) => {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(users)
+      }
+    })
 })
 
 module.exports = router
