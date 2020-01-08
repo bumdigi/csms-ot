@@ -1,4 +1,4 @@
-# todo-today server 단
+# todo-today-server
 
 * 설치
   1) git clone https://github.com/bumdigi/csms-ot.git
