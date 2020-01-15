@@ -7,7 +7,8 @@ const cors = require('cors')
 
 const DBconfig = require('./config/DB.js')
 const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
+const userRouter = require('./routes/user.route')
+const listRouter = require('./routes/list.route')
 
 const app = express()
 
@@ -20,7 +21,8 @@ app.use(cookieParser())
 app.use(cors())
 
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+app.use('/users', userRouter)
+app.use('/lists', listRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,3 +54,4 @@ app.use(function(err, req, res, next) {
 // })
 
 module.exports = app
+
